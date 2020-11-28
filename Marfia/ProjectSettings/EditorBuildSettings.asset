@@ -4,5 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
-  m_configObjects: {}
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Normal/Examples/Cube Player/Realtime + Cube Player.unity
+    guid: 5b016352eb5f97a48b7f489f049b0930
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: ba5d6c99d42b9ba49817d5673532b011,
+      type: 2}
