@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Normal/Examples/Cube Player/Realtime + Cube Player.unity
-    guid: 5b016352eb5f97a48b7f489f049b0930
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: a0650c6fe475a864da588ec565857ee5
   - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 0efca649915af7b4f970bd8e89a4eb65
