@@ -1,23 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿// Code was made using photon tutorial: https://www.youtube.com/watch?v=KGzMxalSqQE&t=671s&ab_channel=RugbugRedfern
 using Photon.Realtime;
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
 
 public class RoomListItem : MonoBehaviour
 {
-    [SerializeField]
-    private Text text;
-    private RoomInfo info;
+	[SerializeField] TMP_Text text;
 
-    public void SetUp(RoomInfo info)
-    {
-        this.info = info;
-        text.text = info.Name;
-    }
+	public RoomInfo info;
 
-    public void OnClick()
-    {
-        Launcher.Instance.JoinRoom(info);
-    }
+	public void SetUp(RoomInfo _info)
+	{
+		info = _info;
+		text.text = _info.Name;
+	}
+
+	public void OnClick()
+	{
+		Launcher.Instance.JoinRoom(info);
+	}
 }

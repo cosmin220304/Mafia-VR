@@ -1,32 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿// Code was made using photon tutorial: https://www.youtube.com/watch?v=KGzMxalSqQE&t=671s&ab_channel=RugbugRedfern
 using Photon.Pun;
-using UnityEngine.UI;
 using Photon.Realtime;
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
 
 public class PlayerListItem : MonoBehaviourPunCallbacks
 {
-    [SerializeField]
-    private Text text;
-    private Player player;
+	[SerializeField] TMP_Text text;
+	Player player;
 
-    public void SetUp(Player player)
-    {
-        this.player = player;
-        text.text = player.NickName;
-    }
+	public void SetUp(Player _player)
+	{
+		player = _player;
+		text.text = _player.NickName;
+	}
 
-    public override void OnPlayerLeftRoom(Player otherPlayer)
-    {
-        if (player == otherPlayer)
-        {
-            Destroy(gameObject);
-        }
-    }
+	public override void OnPlayerLeftRoom(Player otherPlayer)
+	{
+		if(player == otherPlayer)
+		{
+			Destroy(gameObject);
+		}
+	}
 
-    public override void OnLeftRoom()
-    {
-        Destroy(gameObject);
-    }
+	public override void OnLeftRoom()
+	{
+		Destroy(gameObject);
+	}
 }

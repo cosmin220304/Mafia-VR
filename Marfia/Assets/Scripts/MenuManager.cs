@@ -1,57 +1,48 @@
-﻿using System.Collections;
+﻿// Code was made using photon tutorial: https://www.youtube.com/watch?v=KGzMxalSqQE&t=671s&ab_channel=RugbugRedfern
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField]
-    private Menu[] menus;
-    public static MenuManager Instance;
+	public static MenuManager Instance;
 
-    void Awake()
-    {
-        Instance = this;
-    }
+	[SerializeField] Menu[] menus;
 
-    public void OpenMenu(string menuName)
-    {
-        foreach(var menu in menus)
-        {
-            if (menu.Name == menuName)
-            {
-                menu.Open();
-            }
-            else
-            {
-                menu.Close();
-            }
-        }
-    }
+	void Awake()
+	{
+		Instance = this;
+	}
 
-    public void CloseMenu(string menuName)
-    {
-        var menu = menus.FirstOrDefault(m => m.Name == menuName);
-        menu.Close();
-    }
+	public void OpenMenu(string menuName)
+	{
+		for(int i = 0; i < menus.Length; i++)
+		{
+			if(menus[i].menuName == menuName)
+			{
+				menus[i].Open();
+			}
+			else if(menus[i].open)
+			{
+				CloseMenu(menus[i]);
+			}
+		}
+	}
 
-    public void OpenMenu(Menu Menu)
-    {
-        foreach(var menu in menus)
-        {
-            if (menu.Name == Menu.Name)
-            {
-                menu.Open();
-            }
-            else
-            {
-                menu.Close();
-            }
-        }
-    }
+	public void OpenMenu(Menu menu)
+	{
+		for(int i = 0; i < menus.Length; i++)
+		{
+			if(menus[i].open)
+			{
+				CloseMenu(menus[i]);
+			}
+		}
+		menu.Open();
+	}
 
-    public void CloseMenu(Menu menu)
-    {
-        menu.Close();
-    }
+	public void CloseMenu(Menu menu)
+	{
+		menu.Close();
+	}
 }

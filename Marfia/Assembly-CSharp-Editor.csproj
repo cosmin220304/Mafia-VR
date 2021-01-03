@@ -39,8 +39,6 @@
      <Compile Include="Assets\FlexibleCelShader\Editor\CelCustomEditor.cs" />
      <Compile Include="Assets\FlexibleCelShader\Editor\PresetDataConainer.cs" />
      <Compile Include="Assets\FlexibleCelShader\Editor\PresetHelper.cs" />
-     <Compile Include="Assets\GoogleVR\Demos\Editor\DemoInputManagerEditor.cs" />
-     <Compile Include="Assets\GoogleVR\Demos\Editor\PermissionsDemoBuildProcessor.cs" />
      <Compile Include="Assets\GoogleVR\Editor\Controller\GvrControllerVisualEditor.cs" />
      <Compile Include="Assets\GoogleVR\Editor\Controller\GvrLaserPointerEditor.cs" />
      <Compile Include="Assets\GoogleVR\Editor\Controller\GvrLaserVisualEditor.cs" />
@@ -678,24 +676,9 @@
       <Name>Unity.Subsystem.Registration</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="PunDemos.DemoHubEditor.csproj">
-      <Project>{daab3c2e-35d9-3c10-99b6-f2557f9954a3}</Project>
-      <Name>PunDemos.DemoHubEditor</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="PunDemos.DemoSlotcarEditor.csproj">
-      <Project>{b67d894d-abe2-ad76-566a-f5abbcdf9082}</Project>
-      <Name>PunDemos.DemoSlotcarEditor</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
     <ProjectReference Include="Unity.VSCode.Editor.csproj">
       <Project>{41f9bacc-899d-f501-d50e-f83481d24045}</Project>
       <Name>Unity.VSCode.Editor</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="PhotonUnityNetworking.Demos.csproj">
-      <Project>{a281bd7d-4631-2665-f025-cc0aea3dc3c3}</Project>
-      <Name>PhotonUnityNetworking.Demos</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Utilities.csproj">
