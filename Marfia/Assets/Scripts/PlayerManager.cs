@@ -6,13 +6,22 @@ using System.IO;
 
 public class PlayerManager : MonoBehaviour
 {
+	public int ID;
 	PhotonView PV;
-
 	GameObject controller;
 
 	void Awake()
 	{
 		PV = GetComponent<PhotonView>();
+
+		var players = PhotonNetwork.CurrentRoom.Players;
+		foreach(var player in players)
+		{
+			if((player.Value.ToString().Contains(PV.Owner.NickName)))
+			{
+				ID = player.Key;
+			}
+		}
 	}
 
 	void Start()
@@ -25,15 +34,7 @@ public class PlayerManager : MonoBehaviour
 
 	void CreateController()
 	{
-		Debug.Log("test");
-		PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerController"), Vector3.zero, Quaternion.identity);
-		// Transform spawnpoint = SpawnManager.Instance.GetSpawnpoint();
-		// controller = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerController"), spawnpoint.position, spawnpoint.rotation, 0, new object[] { PV.ViewID });
-	}
-
-	public void Die()
-	{
-		PhotonNetwork.Destroy(controller);
-		CreateController();
+		Transform spawnpoint = SpawnManager.Instance.GetSpawnpoint(ID);
+		controller = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerController"), spawnpoint.position, spawnpoint.rotation, 0, new object[] { PV.ViewID });
 	}
 }

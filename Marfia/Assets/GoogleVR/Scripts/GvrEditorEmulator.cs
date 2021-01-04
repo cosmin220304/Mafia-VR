@@ -34,7 +34,7 @@ public class GvrEditorEmulator : MonoBehaviour
     // gets applied after LateUpdate has occured. However, any functionality that
     // queries the camera pose during Update or LateUpdate after GvrEditorEmulator has been
     // updated will get the wrong value applied by GvrEditorEmulator intsead.
-#if UNITY_EDITOR
+// #if UNITY_EDITOR
     private const string AXIS_MOUSE_X = "Mouse X";
     private const string AXIS_MOUSE_Y = "Mouse Y";
 
@@ -147,8 +147,8 @@ public class GvrEditorEmulator : MonoBehaviour
         }
         else if (Instance != this)
         {
-            Debug.LogError("More than one active GvrEditorEmulator instance was found in your " +
-                           "scene.  Ensure that there is only one active GvrEditorEmulator.");
+            // Debug.LogError("More than one active GvrEditorEmulator instance was found in your " +
+            //                "scene.  Ensure that there is only one active GvrEditorEmulator.");
             this.enabled = false;
             return;
         }
@@ -256,5 +256,5 @@ public class GvrEditorEmulator : MonoBehaviour
         Camera.GetAllCameras(allCameras);
     }
 
-#endif  // UNITY_EDITOR
+// #endif  // UNITY_EDITOR
 }
