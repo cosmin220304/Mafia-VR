@@ -1,11 +1,11 @@
-﻿// Code was made using photon tutorial: https://www.youtube.com/watch?v=KGzMxalSqQE&t=671s&ab_channel=RugbugRedfern
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using TMPro;
 using Photon.Realtime;
 using System.Linq;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class Launcher : MonoBehaviourPunCallbacks
 {

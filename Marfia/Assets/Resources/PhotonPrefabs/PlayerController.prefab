@@ -70,6 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c772cf171fca6343a7cb411e64a239f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Role: 
   camera: {fileID: 8345530193544514496}
   gvrReticlePointer: {fileID: 5540569347533607216}
   gvrEditorEmulator: {fileID: 6619279975290888801}

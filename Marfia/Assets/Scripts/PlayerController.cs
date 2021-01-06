@@ -7,6 +7,8 @@ using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class PlayerController : MonoBehaviourPunCallbacks
 {
+	public string Role;
+
 	[SerializeField] GameObject camera, gvrReticlePointer, gvrEditorEmulator;
 	PhotonView PV;
 
