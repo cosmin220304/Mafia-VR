@@ -32,5 +32,41 @@ public class PlayerController : MonoBehaviourPunCallbacks
 			Destroy(gvrReticlePointer.gameObject);
 			Destroy(gvrEditorEmulator.gameObject);
 		}
+
+		if (PhotonNetwork.IsMasterClient)
+		{
+			var numberOfPlayers = PhotonNetwork.CurrentRoom.Players.Count;
+			var rolesString = new List<string>();
+			if (numberOfPlayers == 2)
+			{
+				rolesString.Add("villager1");
+				rolesString.Add("villager2");
+			}
+			else if (numberOfPlayers == 4)
+			{
+				rolesString.Add("mafia");
+				rolesString.Add(Random.Range(0, 2) == 0 ? "doctor" : "detective");
+				rolesString.Add("villager1");
+				rolesString.Add("villager2");
+			}
+			populateRoles(rolesString);
+		}
+		else
+		{
+			Debug.Log("You are a non master client");
+		}
+	}
+
+	void populateRoles(List<string> rolesString)
+	{
+		int i = 0;
+		while (rolesString.Count > 0)
+		{
+			int index = Random.Range(0, rolesString.Count);
+
+			Debug.Log("Role " + rolesString[index] + " player" + i);
+			i++;
+			rolesString.RemoveAt(index);
+		}
 	}
 }

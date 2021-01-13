@@ -24,53 +24,10 @@ public class SpawnManager : MonoBehaviourPunCallbacks
 		{
 			spawnpoints[i] = allSpawns[i];
 		}
-		for (int i = numberOfPlayers + 1; i < allSpawns.Length; i++)
+		for (int i = numberOfPlayers+1; i < allSpawns.Length; i++)
 		{
 			allSpawns[i].gameObject.transform.parent.gameObject.SetActive(false);
 		}
-
-
-		// if (numberOfPlayers == 4)
-		// {
-		// 	var rolesString = new List<string>() {
-		// 		"mafia",
-		// 		Random.Range(0, 2) == 0 ? "doctor" : "detective",
-		// 		"villager",
-		// 		"villager",
-		// 	};
-
-
-		// }
-	}
-
-	// void populareRoles(List<string> rolesString)
-	// {
-	// 	int i = 0;
-	// 	while (rolesString.Count > 0)
-	// 	{
-	// 		int index = Random.Range(0, rolesString.Count);
-
-	// 		Hashtable roleHash = new Hashtable();
-	// 		roleHash.Add("role", rolesString[index]);
-	// 		PhotonNetwork.CurrentRoom.Players[i].SetCustomProperties(roleHash);
-
-	// 		i++;
-	// 		rolesString.RemoveAt(index);
-	// 	}
-	// }
-
-	void Increment()
-	{
-		order = (int)PhotonNetwork.CurrentRoom.CustomProperties["order"];
-		order++;
-		Hashtable hash = new Hashtable();
-		hash.Add("order", order);
-		PhotonNetwork.CurrentRoom.SetCustomProperties(hash);
-	}
-
-	void OnRoomPropertiesUpdate(Hashtable changedProps)
-	{
-		order = (int)changedProps["order"];
 	}
 
 	public Transform GetSpawnpoint(int id)
@@ -80,7 +37,6 @@ public class SpawnManager : MonoBehaviourPunCallbacks
 			return spawnpoints[id].transform;
 		}
 
-		Increment();
 		// spawnpoint 0 is for spectators
 		return spawnpoints[0].transform;
 	}
